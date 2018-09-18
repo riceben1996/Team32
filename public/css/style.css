@@ -89,7 +89,7 @@ table {
 }
 
  td, th {
-  border: 1px solid rgb(221, 221, 221);
+  border: 1px solid #5C7491;
   padding: 8px;
 }
 
@@ -98,14 +98,14 @@ tr:nth-child(even) {
 }
 
 tr:hover {
-  background-color: rgb(221, 221, 221);
+  background-color:#ACB3BE;
 }
 
 th {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  background-color: rgb(76, 175, 80);
+  background-color: #5C7491;
   color: white;
 }
 
