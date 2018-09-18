@@ -1,5 +1,5 @@
 .topnav {
-  background-color: rgb(51, 51, 51);
+  background-color: #3C6C94;
   overflow: hidden;
 }
 
@@ -13,12 +13,12 @@
 }
 
 .topnav a:hover {
-  background-color: rgb(221, 221, 221);
+  background-color: #ACB3BE;
   color: black;
 }
 
 .topnav a.active {
-  background-color: rgb(76, 175, 80);
+  background-color: #6E6938;
   color: white;
 }
 
@@ -29,11 +29,12 @@
   transform: translate(-50%, -50%);
 }
 
-.centerh1 {
+.centerPara {
   position: fixed;
-  top: 80%;
+  top: 65%;
   left: 50%;
   transform: translate(-50%, -50%);
+  color: white;
 }
 
 .div {
