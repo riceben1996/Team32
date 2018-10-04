@@ -12,7 +12,7 @@ class Turbine
     $this->turbineId = intval($data['turbineId']);
     $this->turbineName = $data['turbineName'];
     $this->turbineDescription = $data['turbineDescription'];
-    $this->capacity = intval($data['capcity']);
+    $this->capacity = intval($data['capacity']);
     $this->rampUpTime = intval($data['rampUpTime']);
     $this->maintenanceInterval = floatval($data['maintenanceInterval']);
   }
