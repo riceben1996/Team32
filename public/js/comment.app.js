@@ -7,6 +7,7 @@ var commentApp = new Vue({
 
   methods: {
     handleCommentForm(e) {
+
       e.preventDefault();
 
       const s = JSON.stringify(this.commentForm);
@@ -33,7 +34,9 @@ var commentApp = new Vue({
 
     getEmptyCommentForm() {
       return {
-        comment: null
+        commentId: 0,
+        clientId: 0,
+        comment: ''
         }
       },
     },
@@ -43,7 +46,11 @@ var commentApp = new Vue({
 
     this.commentForm = this.getEmptyCommentForm();
 
-    fetch('api/comment.php')
+    const url = new URL(window.location.href);
+    const clientId = url.serachParams.get('clientId');
+    this.clientId = clientId;
+
+    fetch('api/comment.php?clientId=' + clientId)
     .then( response => response.json() )
     .then( json => {commentApp.comment = json} )
     .catch( err => {
