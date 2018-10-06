@@ -7,7 +7,7 @@ var clientApp = new Vue({
 
 methods: {
 
-  fetchClient(){
+  fetchClients(){
     fetch('api/client.php')
     .then( response => response.json() )
     .then( json => {clientApp.client = json} )
@@ -24,7 +24,7 @@ methods: {
 
   created () {
 
-    this.fetchClient();
+    this.fetchClients();
 
   }
 })
