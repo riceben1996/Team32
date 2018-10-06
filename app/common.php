@@ -14,3 +14,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'
 
 //require files for class
 require 'models/Turbine.php';
+require 'models/Client.php';
+require 'models/Comment.php';
