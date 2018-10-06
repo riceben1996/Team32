@@ -46,18 +46,18 @@ var commentApp = new Vue({
 
     this.commentForm = this.getEmptyCommentForm();
 
-    // var url_string = "http://www.mywebsite.com/myapp?brand=nameOfBrand&user=0123456&type=comm"; //window.location.href
-    // var url = new URL(url_string);
-    // var brand = url.searchParams.get("brand");
-    // console.log(brand);
+    var url_string = "http://www.mywebsite.com/myapp?brand=nameOfBrand&user=0123456&type=comm"; //window.location.href
+    var url = new URL(url_string);
+    var brand = url.searchParams.get("brand");
+    console.log(brand);
 
-    const url = new URL(window.location.href);
-    console.log(url);
-    const clientId = url.serachParams.get("pleasework");
-    console.log(clientId);
-    this.clientId = clientId;
+    // const url = new URL(window.location.href);
+    // console.log(url);
+    // const clientId = url.serachParams.get("pleasework");
+    // console.log(clientId);
+    // this.clientId = clientId;
 
-    // const clientId = 1;
+    const clientId = 1;
 
     fetch('api/comment.php?clientId='+clientId)
     .then( response => response.json() )
