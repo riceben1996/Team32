@@ -18,7 +18,7 @@ methods: {
   },
 
   gotoClient(cid) {
-      window.location = 'clientNotes.html?clientId=' + cid;
+      window.location = 'comment.html?clientId=' + cid;
     }
 },
 
