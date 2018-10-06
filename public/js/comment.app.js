@@ -50,7 +50,7 @@ var commentApp = new Vue({
     const clientId = url.serachParams.get('clientId');
     this.clientId = clientId;
 
-    fetch('api/comment.php?clientId=' + clientId)
+    fetch('api/comment.php?clientId='+clientId)
     .then( response => response.json() )
     .then( json => {commentApp.comment = json} )
     .catch( err => {
