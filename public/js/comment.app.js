@@ -10,12 +10,6 @@ var commentApp = new Vue({
 
       e.preventDefault();
 
-      // const url = new URL(window.location.href);
-      // //console.log(url);
-      // const clientId = url.searchParams.get("clientId");
-      // console.log(clientId);
-      // this.clientId = clientId;
-
       this.commentForm.clientId = this.clientId;
 
       /////CREATE JSON OBJECT
