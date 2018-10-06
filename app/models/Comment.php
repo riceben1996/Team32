@@ -1,11 +1,13 @@
 <?php
 class Comment
 {
-  public $id;
+  public $commentId;
+  public $clientId;
   public $comment;
 
   public function __construct($data) {
-    $this->id = isset($data['id']) ? $data['id'] : null;
+    $this->id = isset($data['commentId']) ? $data['commentId'] : null;
+    $this->comment = $data['clientId'];
     $this->comment = $data['comment'];
   }
 
