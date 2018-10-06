@@ -10,8 +10,15 @@ var commentApp = new Vue({
 
       e.preventDefault();
 
+      const url = new URL(window.location.href);
+      //console.log(url);
+      const clientId = url.searchParams.get("clientId");
+      console.log(clientId);
+      this.clientId = clientId;
+
+      /////CREATE JSON OBJECT
       const s = JSON.stringify(this.commentForm);
-      //console.log(s);
+      console.log(s);
 
       // POST to remote server
       fetch('api/comment.php', {
@@ -47,9 +54,9 @@ var commentApp = new Vue({
     this.commentForm = this.getEmptyCommentForm();
 
     const url = new URL(window.location.href);
-    console.log(url);
+    //console.log(url);
     const clientId = url.searchParams.get("clientId");
-    console.log(clientId);
+    //console.log(clientId);
     this.clientId = clientId;
 
     fetch('api/comment.php?clientId='+clientId)
