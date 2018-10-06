@@ -16,6 +16,14 @@ CREATE TABLE client (
     PRIMARY KEY (clientId)
 );
 
+CREATE TABLE comment(
+    commentId int AUTO_INCREMENT,
+    clientId int,
+    comment text,
+    PRIMARY KEY (commentId),
+    FOREIGN KEY (clientId) REFERENCES client(clientId)
+);
+
 CREATE TABLE site (
     siteId int,
     clientId int,
