@@ -49,6 +49,7 @@ var commentApp = new Vue({
     const url = new URL(window.location.href);
     const clientId = url.serachParams.get('clientId');
     this.clientId = clientId;
+    console.log(clientId);
 
     fetch('api/comment.php?clientId='+clientId)
     .then( response => response.json() )
