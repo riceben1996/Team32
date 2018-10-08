@@ -21,7 +21,7 @@ class Site
     $this->primaryContact = $data['primaryContact'];
     $this->capacity = $data['capacity'];
     $this->commercialDate = $data['commercialDate'];
-    $this->address = $data['address'];
+    $this->address = $data['Address'];
   }
 
   public static function fetchSites() {
