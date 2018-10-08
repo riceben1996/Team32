@@ -34,6 +34,7 @@ CREATE TABLE site (
     commercialDate date,
     addrLine1 varchar(30),
     addrLine2 varchar(30),
+    addrCity varchar(30),
     addrState varchar(30),
     addrZip varchar(30),
     addrCountry varchar(30),
@@ -101,3 +102,18 @@ CREATE TABLE sensorTimeSeries (
     PRIMARY KEY (recordId),
     FOREIGN KEY (sensorDeployedId) REFERENCES sensorDeployed(sensorDeployedId)
 );
+
+CREATE VIEW site_endpoint AS
+Select
+s.siteId,
+s.clientId,
+c.clientName,
+s.siteName,
+s.siteDescription,
+s.primaryContact,
+s.capacity,
+s.commercialDate,
+CONCAT(addrline1, ', ', addrCity, ', ', addrState, ' ', addrZip, ' ', addrCountry) As Address
+ from site s,
+ client c
+Where  s.clientId = c.clientId;

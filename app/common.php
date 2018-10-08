@@ -16,3 +16,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'
 require 'models/Turbine.php';
 require 'models/Client.php';
 require 'models/Comment.php';
+require 'models/Site.php';
