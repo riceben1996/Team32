@@ -117,3 +117,13 @@ CONCAT(addrline1, ', ', addrCity, ', ', addrState, ' ', addrZip, ' ', addrCountr
  from site s,
  client c
 Where  s.clientId = c.clientId;
+
+
+-- ////TRIGGER EXAMPLE///////
+-- CREATE TRIGGER sumWorkToTask
+-- AFTER INSERT ON Work
+-- FOR EACH ROW
+--   UPDATE Tasks
+--   SET
+--     hours_worked = hours_worked + NEW.hours
+-- where id = NEW.task_id;
