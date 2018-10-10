@@ -11,7 +11,7 @@ var siteDetailsApp = new Vue({
       return {
         turbineDeployedId: '',
         turbineId: '',
-        siteId: '',
+        siteId: 0,
         serialNumber: '',
         deployedDate: '',
         totalFiredHours: '',
