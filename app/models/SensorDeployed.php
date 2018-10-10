@@ -1,7 +1,5 @@
 <?php
 
-///////////TANU UPLOAD THIS FILE///////////////////////////////////////////////////
-
 class SensorDeployed
 {
   public $sensorDeployedId;
