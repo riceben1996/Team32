@@ -2,12 +2,7 @@
 
 require '../../app/common.php';
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-  require 'turbineDeployedPost.php';
-  exit;
-}
-
-$siteId = intval($_GET['$siteId'] ?? 0);
+$siteId = intval($_GET['siteId'] ?? 0);
 
 echo $siteId;
 
