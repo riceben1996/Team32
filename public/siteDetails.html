@@ -34,7 +34,8 @@
             <th>Last Unplanned Outage Date</th>
           </tr>
         </thead>
-        <tbody v-for="s in site" :key="s.id" :id="'site- ' + s.id">
+        <!-- <tbody v-for="s in site" :key="s.id" :id="'site- ' + s.id"> -->
+        <tbody v-for="s in site">
           <tr>
             <td>{{s.siteName}}</td>
             <td>{{s.clientName}}</td>
