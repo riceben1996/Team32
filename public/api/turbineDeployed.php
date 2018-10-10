@@ -4,8 +4,6 @@ require '../../app/common.php';
 
 $siteId = intval($_GET['siteId'] ?? 0);
 
-echo $siteId;
-
 // 1. Go to the database and get all turbines
 $turbineDeployed = TurbineDeployed::fetchTurbineDeployed($siteId);
 // 2. Convert to JSON
