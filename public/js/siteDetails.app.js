@@ -28,9 +28,9 @@ var siteDetailsApp = new Vue({
     this.siteDetailsForm = this.getEmptySiteDetailsForm();
 
     const url = new URL(window.location.href);
-    //console.log(url);
+    console.log(url);
     const siteId = url.searchParams.get("siteId");
-    //console.log(clientId);
+    console.log(siteId);
     this.siteId = siteId;
 
     fetch('api/turbineDeployed.php?siteId='+siteId)
