@@ -2,6 +2,11 @@
 
 require '../../app/common.php';
 
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+  require 'turbineDeployedPost.php';
+  exit;
+}
+
 $siteId = intval($_GET['$siteId'] ?? 0);
 
 // 1. Go to the database and get all turbines
