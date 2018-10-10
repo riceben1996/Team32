@@ -33,7 +33,7 @@ var siteDetailsApp = new Vue({
     //console.log(clientId);
     this.siteId = siteId;
 
-    fetch('api/siteDetails.php?siteId='+siteId)
+    fetch('api/turbineDeployed.php?siteId='+siteId)
     .then( response => response.json() )
     .then( json => {siteDetailsApp.siteDetails = json} )
     .catch( err => {
