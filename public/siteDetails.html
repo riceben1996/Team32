@@ -10,32 +10,32 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/dropdown.css">
 
-<title>site</title>
+<title>siteDetails</title>
 </head>
 
 <div class="topnav">
-  <a href="index.html">Home</a>
-  <a href="client.html">Client</a>
-  <a class="active" href="site.html">Site</a>
-  <a href="turbine.html">Turbine</a>
+  <a href="site.html">Back</a>
 </div>
 
 <body>
 
-  <main id="siteMain">
+  <main id="siteDetailsMain">
     <center>
-      <h2>Click on the site below to view details:</h2>
+      <h2>Turbines Deployed at {{s.siteId}}</h2>
     </center>
     <div>
       <table>
         <thead>
           <tr>
-            <th>Site Name</th>
-            <th>Client Name</th>
-            <th>Site Description</th>
+            <th>Serial Number</th>
+            <th>Deployed Date</th>
+            <th>Total Fired Hours</th>
+            <th>Total Starts</th>
+            <th>Last Planned Outage Date</th>
+            <th>Last Unplanned Outage Date</th>
           </tr>
         </thead>
-        <tbody v-for="s in site" :key="s.siteId" :id="'site- ' + s.siteId" @click="gotoSite(s.siteId)">
+        <tbody v-for="s in site" :key="s.siteId" :id="'site- ' + s.siteId">
           <tr>
             <td>{{s.siteName}}</td>
             <td>{{s.clientName}}</td>
@@ -48,7 +48,7 @@
   <!-- development version, includes helpful console warnings -->
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
-  <script src="js/site.app.js"></script>
+  <script src="js/siteDetails.app.js"></script>
 
 
   </body>
