@@ -4,6 +4,10 @@
 
 class SensorTimeSeries
 {
+  public $turbineName;
+  public $turbineSerialNumber;
+  public $sensorName;
+  public $sensorSerialNumber;
   public $recordId;
   public $sensorDeployedId;
   public $dataCollectedDate;
@@ -17,6 +21,10 @@ class SensorTimeSeries
   public $starts;
 
   public function __construct($data) {
+    $this->turbineName = $data['turbineName'];
+    $this->turbineSerialNumber = $data['turbineSerialNumber'];
+    $this->sensorName = $data['sensorName'];
+    $this->sensorSerialNumber = $data['sensorSerialNumber'];
     $this->recordId = $data['recordId'];
     $this->sensorDeployedId = $data['sensorDeployedId'];
     $this->dataCollectedDate = $data['dataCollectedDate'];
@@ -34,7 +42,7 @@ class SensorTimeSeries
     // 1. Connect to the database
     $db = new PDO(DB_SERVER, DB_USER, DB_PW);
     // 2. Prepare the query
-    $sql = 'SELECT * FROM sensorTimeSeries';
+    $sql = 'SELECT * FROM kpiView';
     $statement = $db->prepare($sql);
     // 3. Run the query
     $success = $statement->execute();
