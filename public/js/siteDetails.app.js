@@ -1,8 +1,8 @@
 var siteDetailsApp = new Vue({
   el: '#siteDetailsMain',
   data: {
-    siteDetails: [ ],
-    siteDetailsForm: { },
+    siteDetails: [],
+    siteDetailsForm: {},
   },
 
   methods: {
@@ -18,12 +18,15 @@ var siteDetailsApp = new Vue({
         totalStarts: '',
         lastPlannedOutageDate: '',
         lastUnplannedOutageDate: '',
-        }
-      },
+      }
     },
 
+    gotoTurbine(tid) {
+      window.location = 'siteDetails.html?turbineId=' + tid;
+    }
+  },
 
-  created () {
+  created() {
 
     this.siteDetailsForm = this.getEmptySiteDetailsForm();
 
@@ -33,12 +36,14 @@ var siteDetailsApp = new Vue({
     console.log(siteId);
     this.siteId = siteId;
 
-    fetch('api/turbineDeployed.php?siteId='+siteId)
-    .then( response => response.json() )
-    .then( json => {siteDetailsApp.siteDetails = json} )
-    .catch( err => {
-      console.log('ERROR:');
-      console.log(err);
-    })
+    fetch('api/turbineDeployed.php?siteId=' + siteId)
+      .then(response => response.json())
+      .then(json => {
+        siteDetailsApp.siteDetails = json
+      })
+      .catch(err => {
+        console.log('ERROR:');
+        console.log(err);
+      })
   }
 })
