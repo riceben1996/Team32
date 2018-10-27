@@ -30,7 +30,6 @@
       <table>
         <thead>
           <tr>
-            <th>Client ID</th>
             <th>Client Name</th>
             <th>Client Description</th>
             <th>Sector</th>
@@ -40,7 +39,6 @@
         </thead>
         <tbody v-for="c in client" :key="c.clientId" :id="'client- ' + c.clientId" @click="gotoClient(c.clientId)">
           <tr>
-            <td>{{c.clientId}}</td>
             <td>{{c.clientName}}</td>
             <td>{{c.clientDescription}}</td>
             <td>{{c.gicsSector}}</td>
