@@ -35,8 +35,8 @@
           </tr>
         </thead>
         <!-- <tbody v-for="s in site" :key="s.id" :id="'site- ' + s.id"> -->
-        <tbody v-for="sd in siteDetails">
-          <tr>
+        <tbody>
+          <tr v-for="sd in siteDetails">
             <td>{{sd.serialNumber}}</td>
             <td>{{sd.deployedDate}}</td>
             <td>{{sd.totalFiredHours}}</td>
