@@ -11,7 +11,7 @@ var kpiAvailabilityApp = new Vue({
       .then( json => {
         kpiAvailabilityApp.sensorTimeSeries = json;
         kpiAvailabilityApp.formatData();
-        kpiAvailabilityApp.buildOutputChart();
+        kpiAvailabilityApp.buildAvailabilityChart();
       } )
       .catch( err => {
         console.log('Error getting data');
