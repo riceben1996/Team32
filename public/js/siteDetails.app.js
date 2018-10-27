@@ -2,24 +2,9 @@ var siteDetailsApp = new Vue({
   el: '#siteDetailsMain',
   data: {
     siteDetails: [],
-    siteDetailsForm: {},
   },
 
   methods: {
-
-    getEmptySiteDetailsForm() {
-      return {
-        turbineDeployedId: '',
-        turbineId: '',
-        siteId: 0,
-        serialNumber: '',
-        deployedDate: '',
-        totalFiredHours: '',
-        totalStarts: '',
-        lastPlannedOutageDate: '',
-        lastUnplannedOutageDate: '',
-      }
-    },
 
     gotoTurbine(tid) {
       console.log('TEST');
@@ -28,8 +13,6 @@ var siteDetailsApp = new Vue({
   },
 
   created() {
-
-    this.siteDetailsForm = this.getEmptySiteDetailsForm();
 
     const url = new URL(window.location.href);
     console.log(url);

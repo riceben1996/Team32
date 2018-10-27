@@ -6,11 +6,15 @@ var dashboardApp = new Vue({
 
   },
 
+  methods: {
+    goBackSite(sid) {
+      console.log('TEST');
+      window.location = 'siteDetails.html?siteId=' + sid;
+    }
+  },
 
 
   created() {
-
-  //  this.dashboardAppForm = this.getEmptySiteDetailsForm();
 
     const url = new URL(window.location.href);
     console.log(url);
