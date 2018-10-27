@@ -10,11 +10,11 @@ var kpiOutputApp = new Vue({
       .then( response => response.json() )
       .then( json => {
         kpiOutputApp.sensorTimeSeries = json;
-        kpiOutputApp.formatSensorTime();
+        kpiOutputApp.formatData();
         kpiOutputApp.buildOutputChart();
       } )
       .catch( err => {
-        console.log('Time Series Get ERROR:');
+        console.log('Error getting data');
         console.log(err);
       })
     },
