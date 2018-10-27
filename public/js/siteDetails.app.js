@@ -6,9 +6,9 @@ var siteDetailsApp = new Vue({
 
   methods: {
 
-    gotoTurbine(tid) {
+    gotoTurbine(tid, sid) {
       console.log('TEST');
-      window.location = 'dashboard.html?turbineDeployedId=' + tid;
+      window.location = 'dashboard.html?turbineDeployedId=' + tid + '&siteId=' + sid;
     }
   },
 
