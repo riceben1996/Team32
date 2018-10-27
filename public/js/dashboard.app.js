@@ -7,9 +7,11 @@ var dashboardApp = new Vue({
   },
 
   methods: {
-    goBackSite(sid) {
-      console.log('TEST');
-      window.location = 'siteDetails.html?siteId=' + sid;
+    goBackSite() {
+      const url = new URL(window.location.href);
+      const siteId = url.searchParams.get("siteId");
+      console.log(siteId);
+      window.location = 'siteDetails.html?siteId=' + siteId;
     }
   },
 
