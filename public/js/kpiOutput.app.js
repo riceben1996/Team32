@@ -49,7 +49,7 @@ var kpiOutputApp = new Vue({
                }
            },
            legend: {
-               enabled: true
+               enabled: false
            },
            plotOptions: {
                area: {
