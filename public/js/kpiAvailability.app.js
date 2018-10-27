@@ -32,13 +32,18 @@ var kpiAvailabilityApp = new Vue({
         Highcharts.chart('availabilityChart', {
         xAxis: {
             enabled:true,
-            type: 'datetime'
+            type: 'datetime',
+            title: {
+              text: 'Date'
+            }
         },
         yAxis: {
-            enabled:true
+            enabled:true,
+            title: {
+                text: 'Availability Percentage'
         },
         title: {
-            text: 'Scatter plot with regression line'
+            text: 'Scatter Plot of Availability'
         },
         series: [
         {
