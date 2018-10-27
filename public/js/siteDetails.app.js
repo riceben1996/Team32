@@ -22,7 +22,7 @@ var siteDetailsApp = new Vue({
     },
 
     gotoTurbine(tid) {
-      window.location = 'siteDetails.html?turbineId=' + tid;
+      window.location = 'dashboard.html?turbineDeployedId=' + tid;
     }
   },
 
