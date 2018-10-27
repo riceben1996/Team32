@@ -44,7 +44,7 @@ var kpiAvailabilityApp = new Vue({
         {
             type: 'scatter',
             name: 'Observations',
-            data: kpiAvailabilityApp.sensorTime.map( entry=>
+            data: kpiAvailabilityApp.sensorTimeSeries.map( entry =>
               [entry.dateCollected, entry.availability]
             ),
             marker: {
