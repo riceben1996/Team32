@@ -41,7 +41,7 @@ var kpiOutputApp = new Vue({
            },
            xAxis: {
                type: 'datetime',
-               titel: {
+               title: {
                  text: 'Date'
                }
            },
