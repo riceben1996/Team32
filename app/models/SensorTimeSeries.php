@@ -4,6 +4,7 @@
 
 class SensorTimeSeries
 {
+  public $turbineDeployedId;
   public $turbineName;
   public $turbineSerialNumber;
   public $sensorName;
@@ -21,6 +22,7 @@ class SensorTimeSeries
   public $starts;
 
   public function __construct($data) {
+    $this->turbineDeployedId = $data['turbineDeployedId'];
     $this->turbineName = $data['turbineName'];
     $this->turbineSerialNumber = $data['turbineSerialNumber'];
     $this->sensorName = $data['sensorName'];
@@ -38,14 +40,16 @@ class SensorTimeSeries
     $this->starts = $data['starts'];
   }
 
-  public static function fetchSensorTimeSeries() {
+  public static function fetchSensorTimeSeries(int $turbineDeployedId) {
     // 1. Connect to the database
     $db = new PDO(DB_SERVER, DB_USER, DB_PW);
     // 2. Prepare the query
-    $sql = 'SELECT * FROM kpiView';
+    $sql = 'SELECT * FROM kpiView where turbineDeployedId=?';
     $statement = $db->prepare($sql);
     // 3. Run the query
-    $success = $statement->execute();
+    $success = $statement->execute(
+      [$turbineDeployedId]
+    );
     // 4. Handle the results
     $arr = [];
     while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
