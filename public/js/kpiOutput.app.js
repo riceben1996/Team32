@@ -40,7 +40,8 @@ var kpiOutputApp = new Vue({
                text: 'Output over Time'
            },
            xAxis: {
-               type: 'datetime'
+               type: 'datetime',
+               text: 'Date'
            },
            yAxis: {
                title: {
