@@ -30,7 +30,7 @@ var kpiCompressorEfficiencyApp = new Vue({
 
     buildCompressorChart() {
 
-       Highcharts.chart('compressorChart', {
+       Highcharts.chart('compressorEfficiencyChart', {
            chart: {
                zoomType: 'x'
            },
