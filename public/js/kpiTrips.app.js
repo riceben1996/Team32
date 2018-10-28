@@ -123,26 +123,27 @@ var kpiTripsApp = new Vue({
               }
           }]
 
-      },
-      // Add some life
-      function (chart) {
-        console.log("is this being hit function");
-          if (!chart.renderer.forExport) {
-              setInterval(function () {
-                  var point = chart.series[0].points[0],
-                      newVal,
-                      inc = Math.round((Math.random() - 0.5) * 20);
-
-                  newVal = point.y + inc;
-                  if (newVal < 0 || newVal > 200) {
-                      newVal = point.y - inc;
-                  }
-
-                  point.update(newVal);
-
-              }, 3000);
-          }
-      });
+      }
+      // // Add some life
+      // function (chart) {
+      //   console.log("is this being hit function");
+      //     if (!chart.renderer.forExport) {
+      //         setInterval(function () {
+      //             var point = chart.series[0].points[0],
+      //                 newVal,
+      //                 inc = Math.round((Math.random() - 0.5) * 20);
+      //
+      //             newVal = point.y + inc;
+      //             if (newVal < 0 || newVal > 100) {
+      //                 newVal = point.y - inc;
+      //             }
+      // 
+      //             point.update(newVal);
+      //
+      //         }, 3000);
+      //     }
+      // }
+    );
 
     },
   },
