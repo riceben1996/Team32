@@ -41,7 +41,7 @@ var kpiTripsApp = new Vue({
           },
 
           title: {
-              text: 'Speedometer'
+              text: 'Percentage Chance a Turbine Trips on a Day'
           },
 
           pane: {
