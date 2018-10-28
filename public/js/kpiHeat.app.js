@@ -22,7 +22,7 @@ var kpiHeatApp = new Vue({
     formatData() {
       this.sensorTimeSeries.forEach(
         (entry, index, arr) => {
-          entry.heatRate = Number(entry.compressorEfficiency);
+          entry.heatRate = Number(entry.heatRate);
           entry.output = Number(entry.output);
         }
       )
