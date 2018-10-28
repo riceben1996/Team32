@@ -80,7 +80,7 @@ var kpiTripsApp = new Vue({
           // the value axis
           yAxis: {
               min: 0,
-              max: 200,
+              max: 100,
 
               minorTickInterval: 'auto',
               minorTickWidth: 1,
@@ -98,28 +98,28 @@ var kpiTripsApp = new Vue({
                   rotation: 'auto'
               },
               title: {
-                  text: 'km/h'
+                  text: 'Trip Rate Percentage'
               },
               plotBands: [{
                   from: 0,
-                  to: 120,
+                  to: 5,
                   color: '#55BF3B' // green
               }, {
-                  from: 120,
-                  to: 160,
+                  from: 5,
+                  to: 15,
                   color: '#DDDF0D' // yellow
               }, {
-                  from: 160,
-                  to: 200,
+                  from: 15,
+                  to: 100,
                   color: '#DF5353' // red
               }]
           },
 
           series: [{
-              name: 'Speed',
-              data: [80],
+              name: 'Trip Rate %',
+              data: [12],
               tooltip: {
-                  valueSuffix: ' km/h'
+                  valueSuffix: '%'
               }
           }]
 
@@ -137,7 +137,7 @@ var kpiTripsApp = new Vue({
       //             if (newVal < 0 || newVal > 100) {
       //                 newVal = point.y - inc;
       //             }
-      // 
+      //
       //             point.update(newVal);
       //
       //         }, 3000);
