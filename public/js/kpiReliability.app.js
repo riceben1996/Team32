@@ -23,12 +23,43 @@ var kpiReliabilityApp = new Vue({
       this.sensorTimeSeries.forEach(
         (entry, index, arr) => {
           entry.dateCollected = Date.parse(entry.dataCollectedDate);
-          entry.output = Number(entry.output);
+          entry.reliability = Number(entry.reliability);
         }
       )
     },
 
-/////
+    buildReliabilityChart(){
+        Highcharts.chart('reliabilityChart', {
+        xAxis: {
+            enabled:true,
+            type: 'datetime',
+            title: {
+              text: 'Date'
+            }
+        },
+        yAxis: {
+            enabled:true,
+            title: {
+              text: 'Reliability'
+            }
+        },
+        title: {
+            text: 'Scatter plot of Reliability'
+        },
+        series: [
+        {
+            type: 'scatter',
+            name: 'Reliability/Time',
+            data: kpiReliabilityApp.sensorTimeSeries.map( entry=>
+              [entry.dateCollected, entry.reliability]
+            ),
+            marker: {
+                radius: 4
+            }
+        }]
+    });
+    }
+    },
 
   created () {
 
@@ -38,6 +69,6 @@ var kpiReliabilityApp = new Vue({
     this.turbineDeployedId = turbineDeployedId;
 
     this.fetchSensorTimeSeries(turbineDeployedId);
-    
+
   }
 })
