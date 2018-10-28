@@ -20,6 +20,8 @@ var kpiTripsApp = new Vue({
     },
 
     formatData() {
+      console.log(kpiTripsApp.kpiViewTS);
+      console.log(kpiTripsApp.kpiViewTS.tripsPercentage);
       this.kpiViewTS.forEach(
         (entry, index, arr) => {
           entry.tripsPercentage = Number(entry.tripsPercentage);
