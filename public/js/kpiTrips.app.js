@@ -10,23 +10,12 @@ var kpiTripsApp = new Vue({
         .then(response => response.json())
         .then(json => {
           kpiTripsApp.kpiViewTS = json;
-          // console.log(json);
-          kpiTripsApp.formatData();
           kpiTripsApp.buildTripsChart();
         })
         .catch(err => {
           console.log('Error getting data Gauge');
           console.log(err);
         })
-    },
-
-    formatData() {
-      console.log(kpiTripsApp.kpiViewTS[0].tripsPercentage);
-      // this.kpiViewTS.forEach(
-      //   (entry, index, arr) => {
-      //     entry.tripsPercentage = Number(entry.tripsPercentage);
-      //   }
-      // )
     },
 
     buildTripsChart() {
@@ -122,27 +111,7 @@ var kpiTripsApp = new Vue({
                   valueSuffix: '%'
               }
           }]
-
       }
-      // // Add some life
-      // function (chart) {
-      //   console.log("is this being hit function");
-      //     if (!chart.renderer.forExport) {
-      //         setInterval(function () {
-      //             var point = chart.series[0].points[0],
-      //                 newVal,
-      //                 inc = Math.round((Math.random() - 0.5) * 20);
-      //
-      //             newVal = point.y + inc;
-      //             if (newVal < 0 || newVal > 100) {
-      //                 newVal = point.y - inc;
-      //             }
-      //
-      //             point.update(newVal);
-      //
-      //         }, 3000);
-      //     }
-      // }
     );
 
     },
