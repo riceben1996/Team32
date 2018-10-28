@@ -22,7 +22,7 @@ var kpiHoursApp = new Vue({
     formatData() {
       this.sensorTimeSeries.forEach(
         (entry, index, arr) => {
-          entry.heatRate = Number(entry.compressorEfficiency);
+          entry.dateCollected = Date.parse(entry.dataCollectedDate);
           entry.firedHours = Number(entry.firedHours);
         }
       )
