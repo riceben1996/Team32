@@ -5,7 +5,7 @@ var kpiTripsApp = new Vue({
   },
 
   methods: {
-    fetchSensorTimeSeries(turbineDeployedId) {
+    fetchkpiViewTS(turbineDeployedId) {
       fetch('/api/kpiViewTS.php?turbineDeployedId=' + turbineDeployedId)
         .then(response => response.json())
         .then(json => {
@@ -20,15 +20,15 @@ var kpiTripsApp = new Vue({
     },
 
     formatData() {
-      this.sensorTimeSeries.forEach(
+      this.kpiViewTS.forEach(
         (entry, index, arr) => {
-          entry.trips = Number(entry.trips);
+          entry.tripsPercentage = Number(entry.tripsPercentage);
         }
       )
     },
 
     buildTripsChart() {
-      console.log("is this being hit chart");
+      console.log(this.tripsPercentage);
       Highcharts.chart('tripsChart', {
 
           chart: {
@@ -116,7 +116,7 @@ var kpiTripsApp = new Vue({
 
           series: [{
               name: 'Trip Rate %',
-              data: [12],
+              data: [this.tripsPercentage],
               tooltip: {
                   valueSuffix: '%'
               }
@@ -154,7 +154,7 @@ var kpiTripsApp = new Vue({
     console.log('Turbine: ' + turbineDeployedId);
     this.turbineDeployedId = turbineDeployedId;
 
-    this.fetchSensorTimeSeries(turbineDeployedId);
+    this.fetchkpiViewTS(turbineDeployedId);
 
   }
 })
