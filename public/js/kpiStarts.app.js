@@ -90,17 +90,17 @@ var kpiStartsApp = new Vue({
                   text: 'Start Rate Percentage'
               },
               plotBands: [{
-                  from: 75,
-                  to: 100,
-                  color: '#55BF3B' // green
+                  from: 0,
+                  to: 75,
+                  color: '#DF5353' // red
               }, {
                   from: 60,
                   to: 75,
                   color: '#DDDF0D' // yellow
               }, {
-                  from: 0,
-                  to: 75,
-                  color: '#DF5353' // red
+                  from: 75,
+                  to: 100,
+                  color: '#55BF3B' // green
               }]
           },
 
