@@ -10,6 +10,7 @@ var kpiTripsApp = new Vue({
         .then(response => response.json())
         .then(json => {
           kpiTripsApp.kpiViewTS = json;
+          console.log(json);
           kpiTripsApp.formatData();
           kpiTripsApp.buildTripsChart();
         })
@@ -20,7 +21,7 @@ var kpiTripsApp = new Vue({
     },
 
     formatData() {
-      console.log(this.kpiTripsApp.kpiViewTS);
+      console.log(kpiTripsApp.kpiViewTS);
       console.log(kpiTripsApp.kpiViewTS.tripsPercentage);
       this.kpiViewTS.forEach(
         (entry, index, arr) => {
