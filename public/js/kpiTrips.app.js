@@ -1,15 +1,15 @@
 var kpiTripsApp = new Vue({
   el: '#kpiTrips',
   data: {
-    sensorTimeSeries: [],
+    kpiViewTS: [],
   },
 
   methods: {
     fetchSensorTimeSeries(turbineDeployedId) {
-      fetch('/api/sensorTimeSeries.php?turbineDeployedId=' + turbineDeployedId)
+      fetch('/api/kpiViewTS.php?turbineDeployedId=' + turbineDeployedId)
         .then(response => response.json())
         .then(json => {
-          kpiTripsApp.sensorTimeSeries = json;
+          kpiTripsApp.kpiViewTS = json;
           kpiTripsApp.formatData();
           kpiTripsApp.buildTripsChart();
         })
@@ -22,7 +22,6 @@ var kpiTripsApp = new Vue({
     formatData() {
       this.sensorTimeSeries.forEach(
         (entry, index, arr) => {
-          entry.dateCollected = Date.parse(entry.dataCollectedDate);
           entry.trips = Number(entry.trips);
         }
       )
@@ -41,7 +40,7 @@ var kpiTripsApp = new Vue({
           },
 
           title: {
-              text: 'Percentage Chance a Turbine Trips on a Day'
+              text: 'Percentage Chance the Turbine Trips on a Day'
           },
 
           pane: {

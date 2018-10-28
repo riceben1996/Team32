@@ -1,7 +1,5 @@
 <?php
 
-///////////MEG UPLOAD THIS FILE///////////////////////////////////////////////////
-
 class SensorTimeSeries
 {
   public $turbineDeployedId;
