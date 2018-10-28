@@ -80,7 +80,7 @@ var kpiHoursApp = new Vue({
           series: [{
               type: 'area',
               name: 'Hours/Date',
-              data: kpiHoursApp.sensorTime.map( entry=>
+              data: kpiHoursApp.sensorTimeSeries.map( entry=>
                 [entry.dateCollected, entry.firedHours]
               )
           }]
