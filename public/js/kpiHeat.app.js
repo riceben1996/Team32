@@ -11,7 +11,7 @@ var kpiHeatApp = new Vue({
         .then(json => {
           kpiHeatApp.sensorTimeSeries = json;
           kpiHeatApp.formatData();
-          kpiHeatApp.buildCompressorChart();
+          kpiHeatApp.buildHeatChart();
         })
         .catch(err => {
           console.log('Error getting data');
