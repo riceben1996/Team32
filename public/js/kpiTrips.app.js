@@ -28,7 +28,7 @@ var kpiTripsApp = new Vue({
     },
 
     buildTripsChart() {
-      console.log(this.kpiTripsApp.tripsPercentage);
+      console.log(kpiTripsApp.kpiViewTS.tripsPercentage);
       Highcharts.chart('tripsChart', {
 
           chart: {
