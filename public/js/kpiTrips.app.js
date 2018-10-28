@@ -80,7 +80,7 @@ var kpiTripsApp = new Vue({
         series: [{
           type: 'area',
           name: 'Trips/Date',
-          data: kpiTripsApp.sensorTime.map(entry => [entry.dateCollected, entry.trips])
+          data: kpiTripsApp.sensorTimeSeries.map(entry => [entry.dateCollected, entry.trips])
         }]
       });
 
