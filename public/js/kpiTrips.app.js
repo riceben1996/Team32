@@ -14,7 +14,7 @@ var kpiTripsApp = new Vue({
           kpiTripsApp.buildTripsChart();
         })
         .catch(err => {
-          console.log('Error getting data');
+          console.log('Error getting data Gauge');
           console.log(err);
         })
     },
