@@ -23,7 +23,7 @@ var kpiStartsApp = new Vue({
       this.sensorTimeSeries.forEach(
         (entry, index, arr) => {
           entry.dateCollected = Date.parse(entry.dataCollectedDate);
-          entry.reliability = Number(entry.reliability);
+          entry.starts = Number(entry.starts);
         }
       )
     },
