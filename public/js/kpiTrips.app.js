@@ -29,6 +29,7 @@ var kpiTripsApp = new Vue({
     },
 
     buildTripsChart() {
+      console.log("is this being hit chart");
       Highcharts.chart('tripsChart', {
 
           chart: {
@@ -125,6 +126,7 @@ var kpiTripsApp = new Vue({
       },
       // Add some life
       function (chart) {
+        console.log("is this being hit function");
           if (!chart.renderer.forExport) {
               setInterval(function () {
                   var point = chart.series[0].points[0],
