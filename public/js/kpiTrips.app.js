@@ -91,14 +91,14 @@ var kpiTripsApp = new Vue({
               },
               plotBands: [{
                   from: 0,
-                  to: 5,
+                  to: 10,
                   color: '#55BF3B' // green
               }, {
-                  from: 5,
-                  to: 15,
+                  from: 10,
+                  to: 25,
                   color: '#DDDF0D' // yellow
               }, {
-                  from: 15,
+                  from: 25,
                   to: 100,
                   color: '#DF5353' // red
               }]
