@@ -44,11 +44,11 @@ var dashboardApp = new Vue({
           console.log('TESTING THIS BITCH')
           dashboardApp.dashboardSite = json
         })
-        .then(siteName => {
-          console.log('Well .then do you work???????????')
-          dashboardApp.dashboardSite.siteName[0] = dashboardApp.siteName
-          console.log(dashboardApp.siteName)
-          })
+        // .then(siteName => {
+        //   console.log('Well .then do you work???????????')
+        //   dashboardApp.dashboardSite.siteName[0] = dashboardApp.siteName
+        //   console.log(dashboardApp.siteName)
+        //   })
         .catch(err => {
           console.log('ERROR: is this failing');
           console.log(err);
