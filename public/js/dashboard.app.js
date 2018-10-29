@@ -43,7 +43,7 @@ var dashboardApp = new Vue({
           dashboardApp.dashboardSite = json
         })
         .catch(err => {
-          console.log('ERROR:');
+          console.log('ERROR: is this failing');
           console.log(err);
         })
 
