@@ -2,11 +2,12 @@ var turbineApp = new Vue({
   el: '#turbineMain',
   data: {
     turbine: [],
+    sensor: [],
   },
 
 methods: {
 
-  fetchSites(){
+  fetchTurbines(){
     fetch('api/turbine.php')
     .then( response => response.json() )
     .then( json => {turbineApp.turbine = json} )
@@ -15,11 +16,23 @@ methods: {
       console.log(err);
     })
   },
+
+  fetchSensors(){
+    fetch('api/sensor.php')
+    .then( response => response.json() )
+    .then( json => {turbineApp.sensor = json} )
+    .catch( err => {
+      console.log('SENSOR FETCH ERROR:');
+      console.log(err);
+    })
+  }
+
 },
 
   created () {
 
-    this.fetchSites();
+    this.fetchTurbines();
+    this.fetchSensors();
 
   }
 })

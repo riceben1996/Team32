@@ -49,6 +49,29 @@
         </tbody>
       </table>
     </div>
+    <center>
+      <h2>Sensor Information</h2>
+    </center>
+    <div>
+      <table>
+        <thead>
+          <tr>
+            <th>Sensor Name</th>
+            <th>Sensor Description</th>
+            <th>Manufacturer</th>
+            <th>Total Life Expentancy Hours</th>
+          </tr>
+        </thead>
+        <tbody v-for="s in sensor" :key="s.sensorId" :id="'sensor- ' + s.sensorId">
+          <tr>
+            <td>{{s.sensorName}}</td>
+            <td>{{s.sensorDescription}}</td>
+            <td>{{s.manufacturer}}</td>
+            <td>{{s.totalLifeExpentancyHours}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </main>
   <!-- development version, includes helpful console warnings -->
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
