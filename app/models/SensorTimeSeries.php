@@ -42,7 +42,7 @@ class SensorTimeSeries
     // 1. Connect to the database
     $db = new PDO(DB_SERVER, DB_USER, DB_PW);
     // 2. Prepare the query
-    $sql = 'SELECT * FROM kpiView where turbineDeployedId=?';
+    $sql = 'SELECT * FROM kpiView where turbineDeployedId=? ORDER BY dataCollectedDate, sensorDeployedId';
     $statement = $db->prepare($sql);
     // 3. Run the query
     $success = $statement->execute(
