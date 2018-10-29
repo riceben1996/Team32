@@ -2,10 +2,11 @@ var dashboardApp = new Vue({
   el: '#dashboardApp',
   data: {
         dashboard: [],
+        dashboardSite: [],
   },
 
   methods: {
-    
+
     goBackSite() {
       const url = new URL(window.location.href);
       const siteId = url.searchParams.get("siteId");
@@ -31,6 +32,20 @@ var dashboardApp = new Vue({
         console.log('ERROR:');
         console.log(err);
       })
+
+      const siteId = url.searchParams.get("siteId");
+      console.log(siteId);
+      this.siteId = siteId;
+
+      fetch('/api/siteName.php?siteId=' + siteId)
+        .then(response => response.json())
+        .then(json => {
+          dashboardApp.dashboardSite = json
+        })
+        .catch(err => {
+          console.log('ERROR:');
+          console.log(err);
+        })
 
   }
 })
