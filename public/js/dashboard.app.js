@@ -3,7 +3,8 @@ var dashboardApp = new Vue({
   data: {
         dashboard: [],
         dashboardSite: [],
-        sn:''
+        turbineSerialNumber:'',
+        siteName: ''
   },
 
   methods: {
@@ -19,8 +20,8 @@ var dashboardApp = new Vue({
 
   created() {
 
-    this.turbineSerialNumber = '';
-    this.siteName = '';
+    // this.turbineSerialNumber = '';
+    // this.siteName = '';
 
     const url = new URL(window.location.href);
     const turbineDeployedId = url.searchParams.get("turbineDeployedId");
