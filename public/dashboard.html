@@ -10,24 +10,24 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <link rel="stylesheet" href="css/style.css">
 
-  <title>siteDetails</title>
+  <title>dashboard</title>
 </head>
 
 
 <main>
 
   <div class="topnav">
-    <!-- <a href="siteDetails.html">Back</a> -->
     <a @click="goBackSite()">Back</a>
   </div>
 
   <body>
 
     <div id="dashboardApp">
-    <center>
-      <h2>Key Performance Indicators for turbine {{dashboardSite.siteName[0]}} at (siteName)</h2>
-    </center>
-</div>
+      <center>
+        <h2>Key Performance Indicators for turbine {{dashboard.turbineSerialNumber[0]}} at {{dashboardSite.siteName[0]}}</h2>
+      </center>
+    </div>
+
     <div id="kpiOutput">
       <h4>Output</h4>
       <div id="outputChart" class="col">
@@ -63,18 +63,6 @@
       <div id="reliabilityChart" class="col">
       </div>
     </div>
-
-    <!-- <div  id="kpiStarts">
-      <h4>Starts</h4>
-      <div id="startsChart" class="col">
-      </div>
-    </div>
-
-    <div  id="kpiTrips">
-      <h4>Trips</h4>
-      <div id="tripsChart" class="col">
-      </div>
-    </div> -->
 
     <div class="row place">
       <section class="col place">
