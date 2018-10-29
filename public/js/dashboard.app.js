@@ -40,6 +40,7 @@ var dashboardApp = new Vue({
       fetch('/api/siteName.php?siteId=' + siteId)
         .then(response => response.json())
         .then(json => {
+          console.log('TESTING THIS BITCH')
           dashboardApp.dashboardSite = json
         })
         .catch(err => {
