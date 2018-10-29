@@ -15,6 +15,7 @@ methods: {
       console.log(err);
     })
   },
+},
 
   created () {
 
