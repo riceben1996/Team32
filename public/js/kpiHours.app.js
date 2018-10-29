@@ -93,7 +93,7 @@ var kpiHoursApp = new Vue({
 
     const url = new URL(window.location.href);
     const turbineDeployedId = url.searchParams.get('turbineDeployedId');
-    console.log('Turbine: ' + turbineDeployedId);
+//    console.log('Turbine: ' + turbineDeployedId);
     this.turbineDeployedId = turbineDeployedId;
 
     this.fetchSensorTimeSeries(turbineDeployedId);
