@@ -46,6 +46,7 @@ var dashboardApp = new Vue({
         })
         .then(
           dashboardApp.dashboardSite.siteName[0] = dashboardApp.siteName
+      //    console.log(dashboardApp.siteName)
         )
         .catch(err => {
           console.log('ERROR: is this failing');
