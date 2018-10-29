@@ -40,4 +40,21 @@ class Site
     }
     return $arr;
   }
+
+  public static function fetchSite(int $siteId) {
+    // 1. Connect to the database
+    $db = new PDO(DB_SERVER, DB_USER, DB_PW);
+    // 2. Prepare the query
+    $sql = 'SELECT * FROM site_endpoint where siteId=?';
+    $statement = $db->prepare($sql);
+    // 3. Run the query
+    $success = $statement->execute();
+    // 4. Handle the results
+    $arr = [];
+    while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+      $theSite =  new Site($row);
+      array_push($arr, $theSite);
+    }
+    return $arr;
+  }
 }
