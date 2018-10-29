@@ -42,7 +42,6 @@ class Site
   }
 
   public static function fetchSite(int $siteId) {
-    echo $siteId;
     // 1. Connect to the database
     $db = new PDO(DB_SERVER, DB_USER, DB_PW);
     // 2. Prepare the query
