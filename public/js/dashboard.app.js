@@ -1,10 +1,8 @@
 var dashboardApp = new Vue({
   el: '#dashboardApp',
   data: {
-        dashboard: [],
-        dashboardSite: [],
-        turbineSerialNumber:'',
-        siteName: ''
+        dashboard: [[{"turbineSerialNumber":""}]],
+        dashboardSite: [[{"siteName":""}]],
   },
 
   methods: {
@@ -19,9 +17,6 @@ var dashboardApp = new Vue({
 
 
   created() {
-
-    // this.turbineSerialNumber = '';
-    // this.siteName = '';
 
     const url = new URL(window.location.href);
     const turbineDeployedId = url.searchParams.get("turbineDeployedId");
