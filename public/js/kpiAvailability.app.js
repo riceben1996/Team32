@@ -30,28 +30,17 @@ var kpiAvailabilityApp = new Vue({
 
         buildAvailabilityChart() {
 
-          var seriesOptions = [],
-            seriesCounter = 0,
-            names = ['Sensor1', 'Sensor2', 'Sensor3'];
+          var series = {};
 
-          $.each(names, function(i, name) {
+          series.forEach( function(i) {
 
-                $.getJSON('https://www.highcharts.com/samples/data/' + name.toLowerCase() + '-c.json', function(data) {
+                //$.getJSON('https://www.highcharts.com/samples/data/' + name.toLowerCase() + '-c.json', function(data) {
+                if (!(i.sensorDeployedId in series)) {
+                  series[i.sensorDeployedId] = { name: i.sensorSerialNumber + '('+i.sensorName+')', data:[]};
+                }
+              series[i.sensorDeployedId].data.push([i.dateCollected, i.availability]);
+          });
 
-                  seriesOptions[i] = {
-                    name: name,
-                    data: data
-                  };
-
-                  // As we're loading the data asynchronously, we don't know what order it will arrive. So
-                  // we keep a counter and create the chart when all the data is loaded.
-                  seriesCounter += 1;
-
-                  if (seriesCounter === names.length) {
-                    createChart();
-                  }
-                });
-              },
 
 
                 Highcharts.chart('availabilityChart', {
@@ -71,14 +60,15 @@ var kpiAvailabilityApp = new Vue({
                   title: {
                     text: 'Scatter Plot of Availability'
                   },
-                  series: [{
-                    type: 'scatter',
-                    name: 'Observations',
-                    data: kpiAvailabilityApp.sensorTimeSeries.map(entry => [entry.dateCollected, entry.availability]),
-                    marker: {
-                      radius: 4
-                    }
-                  }]
+                  // series: [{
+                  //   type: 'scatter',
+                  //   name: 'Observations',
+                  //   data: kpiAvailabilityApp.sensorTimeSeries.map(entry => [entry.dateCollected, entry.availability]),
+                  //   marker: {
+                  //     radius: 4
+                  //   }
+                  // }]
+                  series: Object.values(series)
                 });
               },
             },
