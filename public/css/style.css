@@ -32,6 +32,9 @@
 }
 
 .center1 {
+  font-size: 84px;
+  font-weight: bold;
+  text-align: center;
   position: fixed;
   top: 40%;
   left: 50%;
