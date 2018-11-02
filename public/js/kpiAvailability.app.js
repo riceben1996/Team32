@@ -30,64 +30,20 @@ var kpiAvailabilityApp = new Vue({
       )
     },
 
-    // buildDataSeries() {
-    //   var series = {};
-    //   console.log(series);
-    //
-    //   Array.prototype.forEach.call(this.sensorTimeSeries, function(i) {
-    //   // series.foreach( function(i) {
-    //
-    //     // console.log("FOR EACH BEFORE IF");
-    //
-    //     if (!(i.sensorDeployedId in series)) {
-    //       series[i.sensorDeployedId] = {
-    //         name: i.sensorSerialNumber + '(' + i.sensorName + ')',
-    //         data: []
-    //       };
-    //       // console.log("IF STATEMENT")
-    //     }
-    //     series[i.sensorDeployedId].data.push([i.dateCollected, i.availability]);
-    //     // console.log("FOR EACH AFTER IF");
-    //   });
-    //
-    //   console.log(series);
-    //
-    // },
-
-    // buildAvailabilityChart() {
-    //
-    //   // var series = {};
-    //   //
-    //   // series.forEach( function(i) {
-    //   //
-    //   //       //$.getJSON('https://www.highcharts.com/samples/data/' + name.toLowerCase() + '-c.json', function(data) {
-    //   //       if (!(i.sensorDeployedId in series)) {
-    //   //         series[i.sensorDeployedId] = { name: i.sensorSerialNumber + '('+i.sensorName+')', data:[]};
-    //   //       }
-    //   //     series[i.sensorDeployedId].data.push([i.dateCollected, i.availability]);
-    //   // });
-
-
-
     buildAvailabilityChart() {
 
       var series = {};
       console.log(series);
 
       Array.prototype.forEach.call(this.sensorTimeSeries, function(i) {
-      // series.foreach( function(i) {
-
-        // console.log("FOR EACH BEFORE IF");
 
         if (!(i.sensorDeployedId in series)) {
           series[i.sensorDeployedId] = {
             name: i.sensorSerialNumber + '(' + i.sensorName + ')',
             data: []
           };
-          // console.log("IF STATEMENT")
         }
         series[i.sensorDeployedId].data.push([i.dateCollected, i.availability]);
-        // console.log("FOR EACH AFTER IF");
       });
 
       console.log(Object.values(series));
