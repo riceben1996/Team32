@@ -1,9 +1,17 @@
 var dashboardApp = new Vue({
   el: '#dashboardApp',
   data: {
-        dashboard: [[{"turbineSerialNumber":""}]],
-        dashboardSite: [[{"siteName":""}]],
-        kpiViewTs: []
+    dashboard: [
+      [{
+        "turbineSerialNumber": ""
+      }]
+    ],
+    dashboardSite: [
+      [{
+        "siteName": ""
+      }]
+    ],
+    kpiViewTs: []
   },
 
   methods: {
@@ -14,6 +22,7 @@ var dashboardApp = new Vue({
       console.log(siteId);
       window.location = 'siteDetails.html?siteId=' + siteId;
     }
+
   },
 
 
@@ -29,24 +38,29 @@ var dashboardApp = new Vue({
       .then(json => {
         dashboardApp.dashboard = json
       })
+      .then( test => {
+        if (dashboardApp.dashboard === undefined || dashboardApp.dashboard.length == 0) {
+          dashboardApp.dashboard.turbineSerialNumber === "(NO DATA)"
+        }}
+      )
       .catch(err => {
         console.log('ERROR:');
         console.log(err);
       })
 
-      const siteId = url.searchParams.get("siteId");
-      // console.log(siteId);
-      this.siteId = siteId;
+    const siteId = url.searchParams.get("siteId");
+    // console.log(siteId);
+    this.siteId = siteId;
 
-      fetch('/api/siteName.php?siteId=' + siteId)
-        .then(response => response.json())
-        .then(json => {
-          // console.log('TESTING THIS BITCH')
-          dashboardApp.dashboardSite = json
-        })
-        .catch(err => {
-          console.log('ERROR: is this failing');
-          console.log(err);
-        })
+    fetch('/api/siteName.php?siteId=' + siteId)
+      .then(response => response.json())
+      .then(json => {
+        // console.log('TESTING THIS BITCH')
+        dashboardApp.dashboardSite = json
+      })
+      .catch(err => {
+        console.log('ERROR: is this failing');
+        console.log(err);
+      })
   }
 })
