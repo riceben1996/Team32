@@ -37,14 +37,14 @@ var kpiAvailabilityApp = new Vue({
       Array.prototype.forEach.call(this.sensorTimeSeries, function(i) {
       // series.foreach( function(i) {
 
-        console.log("FOR EACH BEFORE IF");
+        // console.log("FOR EACH BEFORE IF");
 
         if (!(i.sensorDeployedId in series)) {
           series[i.sensorDeployedId] = {
             name: i.sensorSerialNumber + '(' + i.sensorName + ')',
             data: []
           };
-          console.log("IF STATEMENT")
+          // console.log("IF STATEMENT")
         }
         series[i.sensorDeployedId].data.push([i.dateCollected, i.availability]);
         console.log("FOR EACH AFTER IF");
