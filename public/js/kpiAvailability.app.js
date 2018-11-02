@@ -31,6 +31,7 @@ var kpiAvailabilityApp = new Vue({
 
     buildDataSeries() {
       var series = {};
+      console.log(series);
 
       series.forEach(function(i) {
 
