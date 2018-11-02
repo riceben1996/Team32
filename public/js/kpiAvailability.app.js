@@ -47,7 +47,7 @@ var kpiAvailabilityApp = new Vue({
           // console.log("IF STATEMENT")
         }
         series[i.sensorDeployedId].data.push([i.dateCollected, i.availability]);
-        console.log("FOR EACH AFTER IF");
+        // console.log("FOR EACH AFTER IF");
       });
 
       console.log(series);
