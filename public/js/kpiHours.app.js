@@ -29,6 +29,23 @@ var kpiHoursApp = new Vue({
     },
 
     buildHoursChart() {
+
+      var series = {};
+      console.log(series);
+
+      Array.prototype.forEach.call(this.sensorTimeSeries, function(i) {
+
+        if (!(i.sensorDeployedId in series)) {
+          series[i.sensorDeployedId] = {
+            name: i.sensorSerialNumber + '(' + i.sensorName + ')',
+            data: []
+          };
+        }
+        series[i.sensorDeployedId].data.push([i.dateCollected, i.firedHours]);
+      });
+
+      console.log(Object.values(series));
+
       Highcharts.chart('hoursChart', {
           chart: {
               zoomType: 'x'
@@ -77,13 +94,7 @@ var kpiHoursApp = new Vue({
               }
           },
 
-          series: [{
-              type: 'area',
-              name: 'Hours/Date',
-              data: kpiHoursApp.sensorTimeSeries.map( entry=>
-                [entry.dateCollected, entry.firedHours]
-              )
-          }]
+          series: Object.values(series)
       });
 
     },
