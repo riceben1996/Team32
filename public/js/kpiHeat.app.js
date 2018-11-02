@@ -30,6 +30,22 @@ var kpiHeatApp = new Vue({
 
     buildHeatChart() {
 
+      var series = {};
+      console.log(series);
+
+      Array.prototype.forEach.call(this.sensorTimeSeries, function(i) {
+
+        if (!(i.sensorDeployedId in series)) {
+          series[i.sensorDeployedId] = {
+            name: i.sensorSerialNumber + '(' + i.sensorName + ')',
+            data: []
+          };
+        }
+        series[i.sensorDeployedId].data.push([i.heatRate, i.output]);
+      });
+
+      console.log(Object.values(series));
+
       Highcharts.chart('heatChart', {
         chart: {
           type: 'scatter',
@@ -76,11 +92,7 @@ var kpiHeatApp = new Vue({
             }
           }
         },
-        series: [{
-          color: 'rgba(223, 83, 83, .5)',
-          data: kpiHeatApp.sensorTimeSeries.map(entry => [entry.heatRate, entry.output])
-
-        }]
+        series: Object.values(series)
       })
     }
   },
