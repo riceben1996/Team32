@@ -65,7 +65,7 @@ var kpiCompressorEfficiencyApp = new Vue({
                }
            },
            legend: {
-               enabled: false
+               enabled: true
            },
            plotOptions: {
                area: {

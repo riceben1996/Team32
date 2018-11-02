@@ -70,7 +70,7 @@ var kpiHeatApp = new Vue({
           }
         },
         legend: {
-          enabled: false
+          enabled: true
         },
         plotOptions: {
           scatter: {

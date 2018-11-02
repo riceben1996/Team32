@@ -67,7 +67,7 @@ var kpiAvailabilityApp = new Vue({
           }
         },
         legend: {
-          enabled: false
+          enabled: true
         },
         plotOptions: {
           area: {
