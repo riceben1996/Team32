@@ -27,6 +27,7 @@ var kpiOutputApp = new Vue({
           entry.output = Number(entry.output);
         }
       )
+      console.log(this.sensorTimeSeries);
     },
 
     //Output Chart
