@@ -2,7 +2,7 @@ var kpiAvailabilityApp = new Vue({
   el: '#kpiAvailability',
   data: {
     sensorTimeSeries: [],
-    series: {},
+    // series: {},
   },
 
   methods: {
@@ -31,10 +31,10 @@ var kpiAvailabilityApp = new Vue({
     },
 
     buildDataSeries() {
-      // var series = {};
+      var series = {};
       console.log(series);
 
-      this.series.foreach(function(i) {
+      series.foreach(function(i) {
 
         console.log("FOR EACH BEFORE IF");
 
