@@ -30,6 +30,22 @@ var kpiCompressorEfficiencyApp = new Vue({
 
     buildCompressorChart() {
 
+      var series = {};
+      console.log(series);
+
+      Array.prototype.forEach.call(this.sensorTimeSeries, function(i) {
+
+        if (!(i.sensorDeployedId in series)) {
+          series[i.sensorDeployedId] = {
+            name: i.sensorSerialNumber + '(' + i.sensorName + ')',
+            data: []
+          };
+        }
+        series[i.sensorDeployedId].data.push([i.dateCollected, i.availability]);
+      });
+
+      console.log(Object.values(series));
+
        Highcharts.chart('compressorEfficiencyChart', {
            chart: {
                zoomType: 'x'
@@ -78,21 +94,7 @@ var kpiCompressorEfficiencyApp = new Vue({
                }
            },
 
-           series: [{
-               type: 'line',
-               name: 'Efficiency 1',
-               data: kpiCompressorEfficiencyApp.sensorTimeSeries.filter(item => item.sensorDeployedId == 1).map( entry=>
-                 [entry.dateCollected, entry.compressorEfficiency]
-               )
-           },
-           {
-               type: 'line',
-               name: 'Efficiency 2',
-               data: kpiCompressorEfficiencyApp.sensorTimeSeries.filter(item => item.sensorDeployedId == 2).map( entry=>
-                 [entry.dateCollected, entry.compressorEfficiency]
-               )
-           }
-         ]
+           series: Object.values(series)
        });
      },
   },
