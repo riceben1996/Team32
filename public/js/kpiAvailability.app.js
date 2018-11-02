@@ -33,7 +33,7 @@ var kpiAvailabilityApp = new Vue({
     buildAvailabilityChart() {
 
       var series = {};
-      console.log(series);
+      // console.log(series);
 
       Array.prototype.forEach.call(this.sensorTimeSeries, function(i) {
 
@@ -46,7 +46,7 @@ var kpiAvailabilityApp = new Vue({
         series[i.sensorDeployedId].data.push([i.dateCollected, i.availability]);
       });
 
-      console.log(Object.values(series));
+      // console.log(Object.values(series));
 
       Highcharts.chart('availabilityChart', {
         chart: {

@@ -31,7 +31,7 @@ var kpiReliabilityApp = new Vue({
     buildReliabilityChart() {
 
       var series = {};
-      console.log(series);
+      // console.log(series);
 
       Array.prototype.forEach.call(this.sensorTimeSeries, function(i) {
 
@@ -44,7 +44,7 @@ var kpiReliabilityApp = new Vue({
         series[i.sensorDeployedId].data.push([i.dateCollected, i.reliability]);
       });
 
-      console.log(Object.values(series));
+      // console.log(Object.values(series));
 
       Highcharts.chart('reliabilityChart', {
         chart: {

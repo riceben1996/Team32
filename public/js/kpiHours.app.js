@@ -31,7 +31,7 @@ var kpiHoursApp = new Vue({
     buildHoursChart() {
 
       var series = {};
-      console.log(series);
+      // console.log(series);
 
       Array.prototype.forEach.call(this.sensorTimeSeries, function(i) {
 
@@ -44,7 +44,7 @@ var kpiHoursApp = new Vue({
         series[i.sensorDeployedId].data.push([i.dateCollected, i.firedHours]);
       });
 
-      console.log(Object.values(series));
+      // console.log(Object.values(series));
 
       Highcharts.chart('hoursChart', {
           chart: {
