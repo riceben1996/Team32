@@ -41,7 +41,7 @@ var kpiCompressorEfficiencyApp = new Vue({
             data: []
           };
         }
-        series[i.sensorDeployedId].data.push([i.dateCollected, i.availability]);
+        series[i.sensorDeployedId].data.push([i.dateCollected, i.compressorEfficiency]);
       });
 
       console.log(Object.values(series));
