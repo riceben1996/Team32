@@ -48,7 +48,7 @@ var kpiReliabilityApp = new Vue({
 
       Highcharts.chart('reliabilityChart', {
         chart: {
-        type: 'area'
+        zoomType: 'x'
         },
         xAxis: {
           enabled: true,
