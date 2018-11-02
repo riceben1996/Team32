@@ -13,8 +13,8 @@ var kpiStartsApp = new Vue({
           kpiStartsApp.buildStartsChart();
         })
         .catch(err => {
-          console.log('Error getting data Gauge');
-          console.log(err);
+          console.log('No Data for Gauge');
+          // console.log(err);
         })
     },
 
