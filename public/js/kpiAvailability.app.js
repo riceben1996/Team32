@@ -33,7 +33,7 @@ var kpiAvailabilityApp = new Vue({
       var series = {};
       console.log(series);
 
-      series.foreach(function(i) {
+      this.series.foreach(function(i) {
 
         console.log("FOR EACH BEFORE IF");
 
