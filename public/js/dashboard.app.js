@@ -20,7 +20,7 @@ var dashboardApp = new Vue({
 
     const url = new URL(window.location.href);
     const turbineDeployedId = url.searchParams.get("turbineDeployedId");
-    console.log(turbineDeployedId);
+    // console.log(turbineDeployedId);
     this.turbineDeployedId = turbineDeployedId;
 
     fetch('/api/sensorTimeSeries.php?turbineDeployedId=' + turbineDeployedId)
@@ -34,7 +34,7 @@ var dashboardApp = new Vue({
       })
 
       const siteId = url.searchParams.get("siteId");
-      console.log(siteId);
+      // console.log(siteId);
       this.siteId = siteId;
 
       fetch('/api/siteName.php?siteId=' + siteId)
