@@ -47,9 +47,11 @@ var kpiReliabilityApp = new Vue({
       console.log(Object.values(series));
 
       Highcharts.chart('reliabilityChart', {
+        chart: {
+        type: 'area'
+        },
         xAxis: {
           enabled: true,
-          type: 'scatter',
           title: {
             text: 'Date'
           }
