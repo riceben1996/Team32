@@ -4,22 +4,22 @@ var kpiReliabilityApp = new Vue({
     sensorTimeSeries: [],
   },
 
-  methods:{
-    fetchSensorTimeSeries (turbineDeployedId){
-      fetch('/api/sensorTimeSeries.php?turbineDeployedId='+turbineDeployedId)
-      .then( response => response.json() )
-      .then( json => {
-        kpiReliabilityApp.sensorTimeSeries = json;
-        kpiReliabilityApp.formatData();
-        kpiReliabilityApp.buildReliabilityChart();
-      } )
-      .catch( err => {
-        console.log('Error getting data');
-        console.log(err);
-      })
+  methods: {
+    fetchSensorTimeSeries(turbineDeployedId) {
+      fetch('/api/sensorTimeSeries.php?turbineDeployedId=' + turbineDeployedId)
+        .then(response => response.json())
+        .then(json => {
+          kpiReliabilityApp.sensorTimeSeries = json;
+          kpiReliabilityApp.formatData();
+          kpiReliabilityApp.buildReliabilityChart();
+        })
+        .catch(err => {
+          console.log('Error getting data');
+          console.log(err);
+        })
     },
 
-    formatData(){
+    formatData() {
       this.sensorTimeSeries.forEach(
         (entry, index, arr) => {
           entry.dateCollected = Date.parse(entry.dataCollectedDate);
@@ -28,44 +28,51 @@ var kpiReliabilityApp = new Vue({
       )
     },
 
-    buildReliabilityChart(){
-        Highcharts.chart('reliabilityChart', {
+    buildReliabilityChart() {
+
+      var series = {};
+      console.log(series);
+
+      Array.prototype.forEach.call(this.sensorTimeSeries, function(i) {
+
+        if (!(i.sensorDeployedId in series)) {
+          series[i.sensorDeployedId] = {
+            name: i.sensorSerialNumber + '(' + i.sensorName + ')',
+            data: []
+          };
+        }
+        series[i.sensorDeployedId].data.push([i.dateCollected, i.reliability]);
+      });
+
+      console.log(Object.values(series));
+
+      Highcharts.chart('reliabilityChart', {
         xAxis: {
-            enabled:true,
-            type: 'datetime',
-            title: {
-              text: 'Date'
-            }
+          enabled: true,
+          type: 'datetime',
+          title: {
+            text: 'Date'
+          }
         },
         yAxis: {
-            enabled:true,
-            title: {
-              text: 'Reliability'
-            }
+          enabled: true,
+          title: {
+            text: 'Reliability'
+          }
         },
         title: {
-            text: 'Scatter plot of Reliability'
+          text: 'Scatter plot of Reliability'
         },
-        series: [
-        {
-            type: 'scatter',
-            name: 'Reliability/Time',
-            data: kpiReliabilityApp.sensorTimeSeries.map( entry=>
-              [entry.dateCollected, entry.reliability]
-            ),
-            marker: {
-                radius: 4
-            }
-        }]
-    });
+        series: Object.values(series)
+      });
     }
-    },
+  },
 
-  created () {
+  created() {
 
     const url = new URL(window.location.href);
     const turbineDeployedId = url.searchParams.get('turbineDeployedId');
-  //  console.log('Turbine: '+ turbineDeployedId);
+    //  console.log('Turbine: '+ turbineDeployedId);
     this.turbineDeployedId = turbineDeployedId;
 
     this.fetchSensorTimeSeries(turbineDeployedId);
