@@ -71,6 +71,8 @@ var kpiAvailabilityApp = new Vue({
 
     buildAvailabilityChart() {
 
+      console.log(Object.values(series));
+
       Highcharts.chart('availabilityChart', {
         chart: {
           zoomType: 'x'
