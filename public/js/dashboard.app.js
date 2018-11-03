@@ -39,7 +39,7 @@ var dashboardApp = new Vue({
         dashboardApp.dashboard = json
       })
       .then( test => {
-        console.log("outside if")
+        // console.log("outside if")
         if (dashboardApp.dashboard === undefined || dashboardApp.dashboard.length == 0) {
           this.turbineSerialNumber == "(NO DATA)"
           console.log("inside if")
