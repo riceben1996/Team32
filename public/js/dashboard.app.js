@@ -43,6 +43,7 @@ var dashboardApp = new Vue({
         if (dashboardApp.dashboard === undefined || dashboardApp.dashboard.length == 0) {
           this.turbineSerialNumber === "(NO DATA)"
           console.log("inside if")
+          console.log(this.turbineSerialNumber)
         }}
       )
       .catch(err => {
